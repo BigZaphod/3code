@@ -1,75 +1,169 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-
-  <title>BigZaphod/3code @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ec235c;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #13dca3; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #13dca3; }
-    h3 { text-align: center; color: #13dca3; }
-    a { color: #13dca3; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+<title>3code</title>
 </head>
-
-<body>
-  <a href="http://github.com/BigZaphod/3code"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-
-  <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/BigZaphod/3code/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/BigZaphod/3code/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-
-    <h1><a href="http://github.com/BigZaphod/3code">3code</a>
-      <span class="small">by <a href="http://github.com/BigZaphod">BigZaphod</a></span></h1>
-
-    <div class="description">
-      The 3code Programming Language
-    </div>
-
-    <h2>Contact</h2>
-<p>Sean Heber (sean@fifthace.com)<br/>      </p>
+<body bgcolor="white" link="blue" vlink="blue" alink="red">
+<a href="http://github.com/BigZaphod/3code"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"  alt="Fork me on GitHub" /></a>
+<small><font face="Arial"><b>Other Languages:</b>
+<a href="/COW/">COW</a> | <a href="/Whirl/">Whirl</a> | <b>3code</b>| <a href="/Taxi/">Taxi</a></font></small>
 
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/BigZaphod/3code/zipball/master">zip</a> or
-      <a href="http://github.com/BigZaphod/3code/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/BigZaphod/3code</pre>
-    </p>
+<div style="padding:30px;">
+<img src="logo.png" alt="3code" />
+</div>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/BigZaphod/3code">BigZaphod/3code</a>
-    </div>
 
-  </div>
+<div style="border: 1px solid green; padding: 5px;">
+<b>Important news!</b><div style="margin: 0px; padding: 6px;">
+    <small>[06/26/05]</small> Fixed a bug which prevented usage of the =[] function (oops).
+<br><small>[06/26/05]</small> Added support for running a program from a file instead of always in interactive mode.
+<br><small>[06/26/05]</small> Implemented <b>99 Bottles of Beer</b> in 3code!
+<br><small>[09/22/05]</small> Kang Seonghoon sent me a <b>quine</b> and a <b>Python</b> version of the interpreter awhile back (sorry this update took so long).  Sweet!
+<br><small>[11/04/08]</small> Jay Campbell strikes again with a <b>logo for 3code</b>. Thanks again, Jay!<br>
+<br><br>Check out the <a href="#downloads">downloads</a> section below.
+</div>
+</div>
 
-  
+<p>Welcome to the official (and likely only) 3code programming language page!</p>
+
+<p>
+3code came about as I pondered over some of the reasons that software tends to be hard build and understand.  A theory I came up with was that perhaps one factor that contributes to the complexity of software is the nearly infinite number of options available to a programmer at any time.  For instance, there are usually countless ways to implement a given functionality.  Some ways are better than others, but the fact remains that the programmer has an almost limitless supply of resources to use when constructing.  This is not true of physical disciplines.  To use an example, consider the construction of a house:  There are all sorts of constraints that control the final shape of the house.  The most obvious one is money.  The budget will limit how much can be spent on materials and labor.  This, in turn, places limits on the types of materials that can be used.  A reasonable option might be wood.  That in turn will put limits on the styles of construction.  The list goes on and on..  Eventually, after settling each style and material constraint, the shape of the entire building sort of emerges from those decisions.
+</p><p>
+With 3code, I decided to take one of the more limitless aspects of most programming languages and place a restriction on it.  In 3code, you may only have three local variables and three global variables.  Those are the fundamental limitations in the language.  Originally I had also planned on limiting the number of function calls per function to three, but I never got around to implementing that limitation.  Perhaps I will try it some day.  In my very limited tests, I have come to a feeling (not a conclusion) that it may not be necessary to place a function call limitation in the language simply because the local variable limitations and the structure of the language itself sort of forces the idea of small, succinct functions that do one thing and one thing well.
+</p><p>
+One other aspect of 3code that is notable (I think) is that variable assignment is reversed from what we have generally come to think of as "normal."  With most languages, you assign values like this:
+<blockquote><code>variable := 42;</code></blockquote>
+
+When I first learned to program back when I was around 7 or 8 years old, I remember being very confused by this seemingly backwards syntax.  Up to that point I had always been introduced to math equations with this form:
+<blockquote><code>2 + 7 = 9</code></blockquote>
+
+Everything started to make sense when I realized that you could switch the side of the equals and still get the same result.  However, that event stuck in my mind and I resolved one day to see if I could make it right.  :-)  In 3code, I have reversed the standard assignment order back to the "proper" way.  This is the same assignment in 3code:
+<blockquote><code>42 = i</code></blockquote>
+
+This one simple change influenced a significant portion of the resulting syntax for 3code.  And, in my opinion, it worked out pretty well.
+</p><p>
+There are only functions, variables, and numbers in 3code.  The structure of the language could, I think, easily support other data types such as characters and strings, but I did not get to implementing them.  Variables have fixed predefined names.
+</p><p>
+The current implementation of 3code is far from complete, however it has been sitting on my hard drive for quite awhile and I decided it was time to post it to the web so that I could get it out there.  Perhaps it will inspire someone.  Hopefully in a good way...
+</p>
+
+<h2>Syntax</h2>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td colspan="2" bgcolor="#efefef"><b>Reserved Characters</b></td></tr>
+<tr><td width="35" align="center"><b>=</b></td><td>assignment</td></tr>
+<tr><td align="center"><b>[</b></td><td>start parameter group</td></tr>
+<tr><td align="center"><b>]</b></td><td>end parameter group</td></tr>
+<tr><td align="center"><b>?</b></td><td>end if statement</td></tr>
+<tr><td align="center"><b>F</b></td><td>begin function definition</td></tr>
+</table>
+<br>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td colspan="2" bgcolor="#efefef"><b>Reserved Words</b></td></tr>
+<tr><td width="35" align="center"><b>x</b></td><td>global variable 1</td></tr>
+<tr><td align="center"><b>y</b></td><td>global variable 2</td></tr>
+<tr><td align="center"><b>z</b></td><td>global variable 3</td></tr>
+<tr><td align="center"><b>i</b></td><td>local variable 1</td></tr>
+<tr><td align="center"><b>j</b></td><td>local variable 2</td></tr>
+<tr><td align="center"><b>k</b></td><td>local variable 3</td></tr>
+<tr><td align="center"><b>then</b></td><td>used in if/then</td></tr>
+<tr><td align="center"><b>else</b></td><td>used in if/then/else</td></tr>
+</table>
+<br>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td colspan="2" bgcolor="#efefef"><b>Currently Built-in Functions</b></td></tr>
+<tr><td width="35" align="center"><b>&gt;</b></td><td>greater than</td></tr>
+<tr><td align="center"><b>&lt;</b></td><td>less than</td></tr>
+<tr><td align="center"><b>=</b></td><td>equality</td></tr>
+<tr><td align="center"><b>&gt;=</b></td><td>greater than or equal to</td></tr>
+<tr><td align="center"><b>&lt;=</b></td><td>less than or equal to</td></tr>
+<tr><td align="center"><b>+</b></td><td>addition</td></tr>
+<tr><td align="center"><b>-</b></td><td>subtraction</td></tr>
+<tr><td align="center"><b>*</b></td><td>multiplication</td></tr>
+<tr><td align="center"><b>/</b></td><td>division</td></tr>
+<tr><td align="center"><b>nl</b></td><td>output new line</td></tr>
+<tr><td align="center"><b>print</b></td><td>output number</td></tr>
+<tr><td align="center"><b>println</b></td><td>output number and new line</td></tr>
+<tr><td align="center"><b>write</b></td><td>output ASCII character with given value</td></tr>
+</table>
+<br>
+
+<p>
+3code programs are made up of sequences of statements.  In many languages, statements require a separator token of some sort (usually a semicolon).  3code does not require such separators thanks to the structure of the language.  With 3code, a single token is a valid statement that executes and the result of that execution in copied into the result buffer.  Assignments and function returns are always done using the value in the result buffer.  To make this slightly more clear, consider the following perfectly legitimate 3code program:
+<blockquote><code>42</code></blockquote>
+This program places the value <b>42</b> into the result buffer.  Any assignment or function return that were to happen now would use the value 42.  To illustrate this, let's assign global variable 1 the value of 42.  Since we have 42 in the result buffer already, all that is required is this:
+<blockquote><code>=x</code></blockquote>
+<b>x</b> is now equal to 42.  We can see this easily enough:
+<blockquote><code>println[x]</code></blockquote>
+The value 42 would be printed on the terminal.  But wait..  we're not done with that 42 yet!  It is still in the result buffer.  Which means even after all this, we can assign y to be 42 as well very easily:
+<blockquote><code>=y println[y]</code></blockquote>
+This works because the print function did not change the value of the result buffer. Now let's see the complete program all run together:
+<blockquote><code>42=x println[x]=y println[y]</code></blockquote>
+Other spaces can be inserted there, but this is the minimal number of spaces required.  Note how there is no need for semicolons or any other statement terminators using this very simple syntax.
+</p><p>
+Functions are the backbone of 3code.  Defining a new function is easy.  Here's a sample function that returns the square of the number that is passed into it:
+<blockquote><code>F sq 1 *[i i]</code></blockquote>
+The <b>F</b> indicates that what follows is a function definition.  The <b>sq</b> is the function's name.  A function name can be just about any character string as long as it isn't a reversed word or character.  The <b>1</b> following the function name is the number of arguments the function takes.  This number can be 0, 1, 2, or 3.  Everything after this until a newline is the function's body.  In this case, the body is <b>*[i i]</b>.  Since you are only allowed three local variables in 3code, the passed in values are assigned to those local variables in the order in which they are passed in.  So this function's body is saying to multiply the first argument by itself.  The result is left in the result buffer to be used later.  Let's print out the square of 7:
+<blockquote><code>println[sq[7]]</code></blockquote>
+Another notable attribute of 3code is that functions are defined by both their name and number of arguments.  You could define another function named <b>sq</b> that took two arguments instead of one and both would be allowed to exist in the system.  Which you got would depend of course on how many arguments you passed to the function when you made the call.
+</p><p>
+The final piece of syntax is branching.  Every language needs some way to make decisions and usually that manifests itself in the form of if/then/else.  In 3code, it takes the following form:
+<blockquote><code><i>condition</i> then <i>branch1</i> else <i>branch2</i>?</code></blockquote>
+The condition is the value in the result buffer.  The <b>else</b> and <b>branch2</b> are optional.  The <b>?</b> at the end is required.  An example might be easier to see.  The following function recursively computes factorials:
+<blockquote><code>F ! 1 i then *[i ![-[i 1]]] else 1?</code></blockquote>
+Note that the function's name is a non alpha-numeric character (!).  This is perfectly acceptable to 3code.  Here's an example of how we might use the function:
+<blockquote><code>println[![7]]</code></blockquote>
+That would print 5040.
+</p><p>
+That covers the basics of 3code as it is now.  Looping is done using recursion as is common in functional languages.  My current interpreter does not support tail recursion and has issues with hitting stack limits due to how it is implemented.  It isn't the best and I have long wanted to rewrite it, but time and motivation have not been forthcoming.  Just keep that in mind when playing with large numbers and recursive functions--especially factorial!
+</p>
+<h2>Other Examples</h2>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td bgcolor="#efefef"><b>Fibonacci Sequence</b></td></tr>
+<tr><td><code>F fib 2 println[i] +[i j]=k j=i k=j fib[i j]</code></td></tr>
+<tr><td><code>fib[1 1]</code></td></tr>
+</table>
+<br>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td bgcolor="#efefef"><b>Count down from 100</b></td></tr>
+<tr><td><code>F counter 1 i then println[i] counter[-[i 1]]?</code></td></tr>
+<tr><td><code>counter[100]</code></td></tr>
+</table>
+<br>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td bgcolor="#efefef"><b>Power (for positive powers only)</b></td></tr>
+<tr><td><code>F ^ 2 j then *[i ^[i -[j 1]]] else 1?</code></td></tr>
+<tr><td><code>println[^[2 8]]</code></td></tr>
+</table>
+<br>
+
+<table border="1" cellpadding="3" cellspacing="0">
+<tr><td bgcolor="#efefef"><b>Hello, World!</b></td></tr>
+<tr><td><code>write[72]write[101]write[108]write[108]write[111]write[44]write[32]
+          <br>write[119]write[111]write[114]write[108]write[100]write[33]nl[]</code></td></tr>
+</table>
+<br>
+
+<a name="downloads">
+<h2>Downloads</h2>
+<a href="3code.cpp">C++ Interpreter Source Code</a> <small>(updated)</small>
+<br><br>
+I have written <a href="bigzaphod-99bottles.txt">99 Bottles of Beer</a> in 3code.
+<br><br>
+<a href="http://dev.tokigun.net/esolang/index_en.php">Kang Seonghoon</a> supplied a <a href="kang-quine.txt">quine</a>
+[<a href="http://dev.tokigun.net/esolang/3code/quine.3code">also here</a>] 
+(the program prints its own source code) written in 3code as well as a <a href="kang-3code.py">Python interpreter</a>
+[<a href="http://dev.tokigun.net/esolang/3code/3code.py">also here</a>] which handles very deep recursion (far deeper than the old C++ version)!
+
+<br>
+<h2>History</h2>
+Created in late December, 2004.
+
 </body>
 </html>
+
